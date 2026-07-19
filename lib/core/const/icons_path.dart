@@ -1,6 +1,5 @@
+
 class IconsPath {
-  static const String facebook = "assets/icons/facebook.png";
-
-
+  static const String appPrimaryIcon = "assets/icons/app_primary_icon.png";
 
 }

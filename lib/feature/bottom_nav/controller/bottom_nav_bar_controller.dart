@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_notes_app/core/const/icons_path.dart';
+import 'package:hive_notes_app/feature/home/view/home_screen.dart';
 
 class BottomNavBarController extends GetxController{
   var selectedIndex = 0.obs;
@@ -24,7 +25,7 @@ class BottomNavBarController extends GetxController{
   }
 
   final List<Widget> pages = [
-    Center(child: Text("Home")),
+    HomeScreen(),
     Center(child: Text("Folder")),
     Center(child: Text("Setting")),
   ];

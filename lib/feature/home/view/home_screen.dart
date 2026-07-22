@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_notes_app/core/const/app_size.dart';
 import 'package:hive_notes_app/feature/home/controller/home_controller.dart';
+import 'package:hive_notes_app/feature/home/view/widget/custom_floating_button.dart';
 import 'package:hive_notes_app/feature/home/view/widget/home_header_section.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,6 +22,9 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: getHeight(50)),
             ],
           ),
+      ),
+      floatingActionButton: CustomFloatingButton(
+        onPressed: () {},
       ),
     );
   }

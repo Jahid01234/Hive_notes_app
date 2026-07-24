@@ -8,24 +8,15 @@ import 'package:hive_notes_app/feature/home/model/note_model.dart';
 class NoteCardWidget extends StatelessWidget {
   final NoteModel note;
   final VoidCallback? onTap;
-  final int index;
+
 
   const NoteCardWidget({
     super.key,
     required this.note,
-    required this.index,
     this.onTap,
   });
 
-  // Card Colors
-  static const List<Color> cardColors = [
-    Color(0xFFF4F8FF),
-    Color(0xFFFFF8E8),
-    Color(0xFFF7F4FF),
-    Color(0xFFEFFBF4),
-    Color(0xFFFFF1F5),
-    Color(0xFFF3F3F3),
-  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +27,7 @@ class NoteCardWidget extends StatelessWidget {
         margin: EdgeInsets.only(bottom: getHeight(16)),
         padding: EdgeInsets.all(getWidth(16)),
         decoration: BoxDecoration(
-          color: cardColors[index % cardColors.length],
+          color: note.color,
           borderRadius: BorderRadius.circular(getWidth(16)),
           border: Border.all(
             color: note.isNew? Color(0xFFFF7A50) : Colors.transparent,
@@ -74,7 +65,7 @@ class NoteCardWidget extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      note.date,
+                      note.dateTime,
                       style: globalTextStyle(
                         fontSize: 13,
                         color: AppColors.greyColor,
@@ -101,6 +92,7 @@ class NoteCardWidget extends StatelessWidget {
     return Positioned(
       top: -15,
       right: -15,
+
 
       child: ClipPath(
         clipper: _CornerRibbonClipper(),

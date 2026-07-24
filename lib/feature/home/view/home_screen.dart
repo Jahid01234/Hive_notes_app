@@ -52,7 +52,6 @@ class HomeScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return NoteCardWidget(
                             note: controller.notes[index],
-                            index: index,
                           );
                         },
                       );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_notes_app/core/const/app_colors.dart';
+import 'package:hive_notes_app/core/const/app_size.dart';
+import 'package:hive_notes_app/core/style/global_text_style.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -13,7 +14,7 @@ class CustomTextField extends StatelessWidget {
   final bool? readOnly;
   final void Function()? onTap;
   final ValueChanged<String>? onChanged;
-  final bool obsecureText;
+  final bool obSecureText;
   final TextInputType? textInputType;
   final String? errorText;
   final int? maxLines;
@@ -25,7 +26,7 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.prefixIcon,
     this.onChanged,
-    this.obsecureText = false,
+    this.obSecureText = false,
     this.textInputType,
     this.height,
     this.radius,
@@ -38,12 +39,14 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     final hasError = errorText != null && errorText!.isNotEmpty;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          height: maxLines != null && maxLines! > 1 ? null : (height ?? 57),
+          height: maxLines != null && maxLines! > 1 ? null : (height ?? getHeight(57)),
           width: double.infinity,
           decoration: BoxDecoration(
             border: Border.all(
@@ -52,23 +55,23 @@ class CustomTextField extends StatelessWidget {
                   : (borderColor ?? const Color(0xFFF7F8F8)),
               width: 1,
             ),
-            borderRadius: BorderRadius.circular(radius ?? 12),
+            borderRadius: BorderRadius.circular(radius ?? getRadius(12)),
           ),
           child: TextField(
             onTap: onTap,
             autofocus: false,
             controller: controller,
-            obscureText: obsecureText,
+            obscureText: obSecureText,
             keyboardType: textInputType,
             onChanged: onChanged,
             readOnly: readOnly ?? false,
             cursorColor: Colors.grey,
             maxLines: maxLines ?? 1,
             enableInteractiveSelection: false,
-            style: GoogleFonts.poppins(
+            style: globalTextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w400,
-              color: AppColors.blackColor,
+              color: isDark ? AppColors.whiteColor : AppColors.blackColor,
             ),
             decoration: InputDecoration(
               hintText: hinText,
@@ -76,24 +79,27 @@ class CustomTextField extends StatelessWidget {
               prefixIcon: prefixIcon,
               filled: true,
               fillColor: const Color(0xFFF7F8F8),
-              hintStyle: GoogleFonts.poppins(
+              hintStyle: globalTextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
                 color: AppColors.greyColor,
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(getRadius(12)),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: hasError
                     ? Colors.transparent
-                    : AppColors.lightGreenColor,
+                    : AppColors.lightGreyColor,
                 ),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(getRadius(12)),
               ),
               border: InputBorder.none,
-              contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: getWidth(16),
+                  vertical: getHeight(14),
+                )
             ),
           ),
         ),
@@ -103,7 +109,7 @@ class CustomTextField extends StatelessWidget {
             padding: const EdgeInsets.only(left: 16, top: 6),
             child: Text(
               errorText!,
-              style: GoogleFonts.poppins(
+              style: globalTextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
                 color: Colors.red,

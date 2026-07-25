@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_notes_app/core/const/app_colors.dart';
-import 'package:hive_notes_app/core/const/app_texts.dart';
+import 'package:hive_notes_app/core/const/app_strings.dart';
 import 'package:hive_notes_app/core/const/icons_path.dart';
 import 'package:hive_notes_app/core/style/global_text_style.dart';
 
@@ -22,7 +22,7 @@ class HomeHeaderSection extends StatelessWidget {
               color: AppColors.blackColor,
             ),
             Text(
-              AppTexts.appNameShort,
+              AppStrings.appNameShort,
               style: globalTextStyle(
                 fontSize: 22,
                 color: AppColors.blackColor,

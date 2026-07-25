@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_notes_app/core/const/app_colors.dart';
 import 'package:hive_notes_app/core/const/app_size.dart';
+import 'package:hive_notes_app/core/route/app_routes.dart';
 import 'package:hive_notes_app/core/style/global_text_style.dart';
 import 'package:hive_notes_app/feature/home/controller/home_controller.dart';
 import 'package:hive_notes_app/feature/home/view/widget/custom_floating_button.dart';
@@ -64,7 +65,9 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: CustomFloatingButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(AppRoutes.addNote);
+        },
       ),
     );
   }

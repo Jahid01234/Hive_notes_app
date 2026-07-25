@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_notes_app/core/const/app_colors.dart';
+import 'package:hive_notes_app/core/const/app_size.dart';
 
 class AppPrimaryButton extends StatelessWidget {
   final String text;
@@ -36,22 +37,22 @@ class AppPrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
-      borderRadius: BorderRadius.circular(radius ?? 12),
+      borderRadius: BorderRadius.circular(radius ?? getRadius(12)),
       child: GestureDetector(
         onTap: isLoading ? null : onTap,
         child: Container(
-          height: height ?? 60,
+          height: height ?? getHeight(60),
           width: width ?? double.infinity,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(radius ?? 12),
-            color: bgColor ?? AppColors.lightGreenColor,
+            borderRadius: BorderRadius.circular(radius ?? getRadius(12)),
+            color: bgColor ?? AppColors.lightGreyColor,
             border: border != null ? Border.all(color: border!) : null,
           ),
           child: isLoading
               ? SizedBox(
-            height: 24,
-            width: 24,
+            width: getWidth(24),
+            height: getWidth(24),
             child: CircularProgressIndicator(
               color: AppColors.whiteColor,
               strokeWidth: 2.5,

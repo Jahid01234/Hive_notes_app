@@ -1,11 +1,19 @@
 import 'package:get/get.dart';
+import 'package:hive_notes_app/feature/add_note/view/add_note_screen.dart';
 import 'package:hive_notes_app/feature/bottom_nav/view/bottom_nav_bar_screen.dart';
+import 'package:hive_notes_app/feature/edit_note/view/edit_note_screen.dart';
+import 'package:hive_notes_app/feature/home/view/home_screen.dart';
+import 'package:hive_notes_app/feature/search/view/search_screen.dart';
 import 'package:hive_notes_app/feature/splash/view/splash_screen.dart';
 
 class AppRoutes {
   // Get routes name here.......
   static const String splash = '/splash';
   static const String bottomNavBar = '/bottomNavBar';
+  static const String home = '/home';
+  static const String addNote = '/addNote';
+  static const String editNote = '/edit-note';
+  static const String search = '/search';
 
 
 
@@ -14,12 +22,32 @@ class AppRoutes {
     GetPage(
       name: splash,
       page: () => SplashScreen(),
-      transition: Transition.leftToRight,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: bottomNavBar,
       page: () => BottomNavBarScreen(),
-      transition: Transition.leftToRight,
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: home,
+      page: () => HomeScreen(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: addNote,
+      page: () => const AddNoteScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: editNote,
+      page: () => EditNoteScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: search,
+      page: () => const SearchScreen(),
+      transition: Transition.downToUp,
     ),
 
   ];

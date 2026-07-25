@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:hive_notes_app/core/const/app_colors.dart';
-import 'package:hive_notes_app/core/const/app_texts.dart';
+import 'package:hive_notes_app/core/const/app_strings.dart';
 import 'package:hive_notes_app/core/const/icons_path.dart';
 import 'package:hive_notes_app/core/style/global_text_style.dart';
 import 'package:hive_notes_app/feature/splash/controller/splash_controller.dart';
@@ -31,7 +31,7 @@ class SplashScreen extends StatelessWidget {
                   color: AppColors.whiteColor,
                 ),
                 Text(
-                  AppTexts.appName,
+                  AppStrings.appName,
                   style: globalTextStyle(
                     fontSize: 22,
                     color: AppColors.whiteColor,
@@ -40,7 +40,7 @@ class SplashScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 Text(
-                  AppTexts.appNameSubtitle,
+                  AppStrings.appNameSubtitle,
                   textAlign: TextAlign.center,
                   style: globalTextStyle(
                     fontSize: 15,
@@ -59,7 +59,7 @@ class SplashScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  AppTexts.loading,
+                  AppStrings.loading,
                   textAlign: TextAlign.center,
                   style: globalTextStyle(
                     fontSize: 15,

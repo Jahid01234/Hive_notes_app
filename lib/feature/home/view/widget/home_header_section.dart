@@ -35,8 +35,9 @@ class HomeHeaderSection extends StatelessWidget {
                 children: [
                   Image.asset(
                     IconsPath.appPrimaryIcon,
-                    height: getHeight(42),
+                    //height: getHeight(42),
                     width: getWidth(42),
+                    fit: BoxFit.contain,
                     color: isDark
                         ? AppColors.whiteColor
                         : AppColors.blackColor,
@@ -55,7 +56,7 @@ class HomeHeaderSection extends StatelessWidget {
               ),
               SizedBox(height: getHeight(4)),
               Obx(() => Padding(
-                padding: const EdgeInsets.only(left: 8),
+                padding:  EdgeInsets.only(left: getWidth(8)),
                 child: Text(
                     '${homeController.totalNotes} notes  • '
                         ' ${homeController.pinnedCount} pinned',

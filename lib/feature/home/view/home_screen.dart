@@ -21,22 +21,22 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: getWidth(20)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: getHeight(50)),
+            SizedBox(height: getHeight(40)),
             HomeHeaderSection(
                 homeController: controller,
                 themeController: themeController,
             ),
-            SizedBox(height: getHeight(50)),
+            SizedBox(height: getHeight(30)),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   NoteListHeader(controller: controller),
-                  SizedBox(height: getHeight(10)),
+                  SizedBox(height: getHeight(2)),
                   Expanded(
                     child: Obx(() {
                       if (controller.notes.isEmpty) {

@@ -15,11 +15,16 @@ class CustomFloatingButton extends StatelessWidget {
     return FloatingActionButton(
       onPressed: onPressed,
       backgroundColor: AppColors.primaryColor,
-      elevation: 4,
+      elevation: 2,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(getRadius(18)),
+        borderRadius: BorderRadius.circular(getRadius(100)),
       ),
-      child: Icon(Icons.add_rounded, color: AppColors.whiteColor, size: getWidth(28)),
+      child: Icon(
+              Icons.add_rounded,
+              color: AppColors.whiteColor,
+              size: 28,
+      ),
     );
   }
 }
+

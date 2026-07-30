@@ -9,7 +9,6 @@ import 'package:hive_notes_app/core/theme/theme_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Hive.initFlutter();
   await Hive.openBox<NoteModel>('notesBox');
   await Hive.openBox('settingsBox');

@@ -36,7 +36,7 @@ class AppRoutes {
     ),
     GetPage(
       name: addNote,
-      page: () => const AddNoteScreen(),
+      page: () =>  AddNoteScreen(),
       transition: Transition.rightToLeft,
     ),
     GetPage(

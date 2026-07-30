@@ -18,26 +18,28 @@ class EmptyStateWidget extends StatelessWidget {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            icon,
-            size: getWidth(60),
-            color: isDark
-                   ? Colors.white24
-                   : AppColors.greyColor.withValues(alpha: 0.4),
-          ),
-          SizedBox(height: getHeight(10)),
-          Text(
-            message,
-            style: globalTextStyle(
-              fontSize: 14,
-              color: AppColors.greyColor,
-              fontWeight: FontWeight.w400,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              size: getWidth(60),
+              color: isDark
+                     ? Colors.white24
+                     : AppColors.greyColor.withValues(alpha: 0.4),
             ),
-          ),
-        ],
+            SizedBox(height: getHeight(10)),
+            Text(
+              message,
+              style: globalTextStyle(
+                fontSize: 14,
+                color: AppColors.greyColor,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

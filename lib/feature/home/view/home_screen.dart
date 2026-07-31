@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   NoteListHeader(controller: controller),
-                  SizedBox(height: getHeight(2)),
+                  SizedBox(height: getHeight(10)),
                   Expanded(
                     child: Obx(() {
                       if (controller.notes.isEmpty) {

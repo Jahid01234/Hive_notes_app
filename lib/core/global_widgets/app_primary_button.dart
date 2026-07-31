@@ -35,6 +35,7 @@ class AppPrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Material(
       color: Colors.transparent,
       borderRadius: BorderRadius.circular(radius ?? getRadius(12)),
@@ -46,45 +47,45 @@ class AppPrimaryButton extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(radius ?? getRadius(12)),
-            color: bgColor ?? AppColors.lightGreyColor,
+            color: bgColor ?? AppColors.primaryColor,
             border: border != null ? Border.all(color: border!) : null,
           ),
           child: isLoading
               ? SizedBox(
-            width: getWidth(24),
-            height: getWidth(24),
-            child: CircularProgressIndicator(
-              color: AppColors.whiteColor,
-              strokeWidth: 2.5,
-            ),
-          )
+                  width: getWidth(24),
+                  height: getWidth(24),
+                  child: CircularProgressIndicator(
+                    color: AppColors.whiteColor,
+                    strokeWidth: 2.5,
+                  ),
+                )
               : Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Text(
-                  text,
-                  style: GoogleFonts.poppins(
-                    fontSize: fontSize ?? 16,
-                    fontWeight: fontWeight ?? FontWeight.w600,
-                    color: textColor ?? AppColors.blackColor,
-                  ),
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: Text(
+                        text,
+                        style: GoogleFonts.poppins(
+                          fontSize: fontSize ?? 16,
+                          fontWeight: fontWeight ?? FontWeight.w600,
+                          color: textColor ?? AppColors.whiteColor,
+                        ),
+                      ),
+                    ),
+                    if (icon != null) ...[
+                      const SizedBox(width: 5),
+                      Container(
+                        decoration: const BoxDecoration(
+                          color: AppColors.blackColor,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Center(child: icon),
+                      ),
+                    ],
+                  ],
                 ),
-              ),
-              if (icon != null) ...[
-                const SizedBox(width: 5),
-                Container(
-                  decoration: const BoxDecoration(
-                    color: AppColors.blackColor,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(child: icon),
-                ),
-              ],
-            ],
-          ),
         ),
       ),
     );

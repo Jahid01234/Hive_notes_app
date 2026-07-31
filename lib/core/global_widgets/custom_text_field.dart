@@ -46,13 +46,15 @@ class CustomTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          height: maxLines != null && maxLines! > 1 ? null : (height ?? getHeight(57)),
+          height: maxLines != null && maxLines! > 1
+                  ? null
+                  : (height ?? getHeight(57)),
           width: double.infinity,
           decoration: BoxDecoration(
             border: Border.all(
               color: hasError
                   ? Colors.red
-                  : (borderColor ?? const Color(0xFFF7F8F8)),
+                  : (borderColor ?? Colors.grey),
               width: 1,
             ),
             borderRadius: BorderRadius.circular(radius ?? getRadius(12)),
@@ -69,16 +71,20 @@ class CustomTextField extends StatelessWidget {
             maxLines: maxLines ?? 1,
             enableInteractiveSelection: false,
             style: globalTextStyle(
-              fontSize: 16,
+              fontSize: 15,
               fontWeight: FontWeight.w400,
-              color: isDark ? AppColors.whiteColor : AppColors.blackColor,
+              color: isDark
+                     ? AppColors.whiteColor
+                     : AppColors.blackColor,
             ),
             decoration: InputDecoration(
               hintText: hinText,
               suffixIcon: suffixIcon,
               prefixIcon: prefixIcon,
               filled: true,
-              fillColor: const Color(0xFFF7F8F8),
+                fillColor: isDark
+                           ? Colors.transparent
+                           : Color(0xFFF7F8F8),
               hintStyle: globalTextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
@@ -89,9 +95,10 @@ class CustomTextField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(getRadius(12)),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: hasError
+                borderSide: BorderSide(
+                  color: hasError
                     ? Colors.transparent
-                    : AppColors.lightGreyColor,
+                    : Colors.transparent,
                 ),
                 borderRadius: BorderRadius.circular(getRadius(12)),
               ),

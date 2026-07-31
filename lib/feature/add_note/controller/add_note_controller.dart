@@ -11,7 +11,6 @@ class AddNoteController extends GetxController {
   final TextEditingController descriptionController = TextEditingController();
 
   final NoteRepository _repository = NoteRepository();
-  final formKey = GlobalKey<FormState>();
 
   final RxInt selectedColor = AppColors.noteColors.first.value.obs;
   final RxString selectedCategory = 'General'.obs;
@@ -20,6 +19,9 @@ class AddNoteController extends GetxController {
   // Character & Word counter
   final RxInt charCount = 0.obs;
   final RxInt wordCount = 0.obs;
+
+  final RxString titleError = ''.obs;
+  final RxString descriptionError = ''.obs;
 
   @override
   void onInit() {
@@ -41,52 +43,99 @@ class AddNoteController extends GetxController {
     selectedCategory.value = category;
   }
 
+
+  void validateTitle(String value) {
+    value = value.trim();
+
+    if (value.isEmpty) {
+      titleError.value = 'Title is required';
+    } else if (value.length < 3) {
+      titleError.value = 'Title must be at least 3 characters';
+    } else {
+      titleError.value = '';
+    }
+  }
+
+  void validateDescription(String value) {
+    value = value.trim();
+
+    if (value.isEmpty) {
+      descriptionError.value = 'Description is required';
+    } else if (value.length < 8) {
+      descriptionError.value = 'Description must be at least 8 characters';
+    } else {
+      descriptionError.value = '';
+    }
+  }
+
+  bool validateForm() {
+    validateTitle(titleController.text);
+    validateDescription(descriptionController.text);
+
+    return titleError.value.isEmpty &&
+        descriptionError.value.isEmpty;
+  }
+
+
+  // save note..................................................................
   Future<void> saveNote() async {
-    if (!formKey.currentState!.validate()) return;
+    if (!validateForm()) {
+      return;
+    }
 
-    isSaving.value = true;
+    try {
+      isSaving.value = true;
 
-    final now = DateTime.now();
-    final newNote = NoteModel(
-      id: const Uuid().v4(),
-      title: titleController.text.trim(),
-      description: descriptionController.text.trim(),
-      colorValue: selectedColor.value,
-      category: selectedCategory.value,
-      isPinned: false,
-      isFavourite: false,
-      createdAt: now,
-      updatedAt: now,
-    );
+      final now = DateTime.now();
 
-    await _repository.addNote(newNote);
+      final newNote = NoteModel(
+        id: const Uuid().v4(),
+        title: titleController.text.trim(),
+        description: descriptionController.text.trim(),
+        colorValue: selectedColor.value,
+        category: selectedCategory.value,
+        isPinned: false,
+        isFavourite: false,
+        createdAt: now,
+        updatedAt: now,
+      );
 
-    isSaving.value = false;
+      await _repository.addNote(newNote);
 
-    Get.back();
-    Get.snackbar(
-      'Success',
-      'Note saved successfully',
-      snackPosition: SnackPosition.BOTTOM,
-      backgroundColor: AppColors.successColor,
-      colorText: AppColors.whiteColor,
-      margin: const EdgeInsets.all(16),
-      borderRadius: 12,
-    );
+      clearForm();
+
+      Get.back();
+
+      Get.snackbar(
+        'Success',
+        'Note saved successfully',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: AppColors.successColor,
+        colorText: AppColors.whiteColor,
+        margin: const EdgeInsets.all(16),
+        borderRadius: 12,
+      );
+    } catch (e) {
+      Get.snackbar(
+        'Error',
+        'Failed to save note',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+        margin: const EdgeInsets.all(16),
+        borderRadius: 12,
+      );
+
+      debugPrint('Save Note Error: $e');
+    } finally {
+      isSaving.value = false;
+    }
   }
 
-  String? validateTitle(String? value) {
-    if (value == null || value.trim().isEmpty) {
-      return 'Title is required';
-    }
-    return null;
-  }
 
-  String? validateDescription(String? value) {
-    if (value == null || value.trim().isEmpty) {
-      return 'Description is required';
-    }
-    return null;
+  void clearForm(){
+    titleController.clear();
+    descriptionController.clear();
   }
 
   @override

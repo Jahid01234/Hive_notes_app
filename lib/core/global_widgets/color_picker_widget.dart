@@ -38,7 +38,7 @@ class ColorPickerWidget extends StatelessWidget {
                     color: isSelected
                            ? AppColors.primaryColor
                            : Colors.grey.withValues(alpha: 0.3),
-                    width: isSelected ? 2.5 : 1,
+                    width: isSelected ? 1.5 : 1,
                   ),
                 ),
                 child: isSelected

@@ -7,11 +7,13 @@ import 'package:hive_notes_app/core/style/global_text_style.dart';
 class AppBackButton extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback? onPressed;
+  final List<Widget>? actions;
 
   const AppBackButton({
     super.key,
     required this.title,
     this.onPressed,
+    this.actions,
   });
 
   @override
@@ -39,6 +41,7 @@ class AppBackButton extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       centerTitle: true,
+      actions: actions,
     );
   }
 

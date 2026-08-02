@@ -9,6 +9,7 @@ import 'package:hive_notes_app/feature/home/view/widget/custom_floating_button.d
 import 'package:hive_notes_app/feature/home/view/widget/home_header_section.dart';
 import 'package:hive_notes_app/feature/home/view/widget/note_card_widget.dart';
 import 'package:hive_notes_app/feature/home/view/widget/note_list_header.dart';
+import 'package:hive_notes_app/feature/home/view/widget/section_header_widget.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -41,6 +42,29 @@ class HomeScreen extends StatelessWidget {
                     child: Obx(() {
                       if (controller.notes.isEmpty) {
                         return EmptyStateWidget();
+                      }
+
+                      if (controller.shouldShowSections) {
+                        return ListView(
+                          padding: EdgeInsets.only(bottom: getHeight(80)),
+                          children: [
+                            SectionHeaderWidget(
+                              title: 'Pinned',
+                              icon: Icons.push_pin_rounded,
+                              count: controller.pinnedNotes.length,
+                            ),
+                            ...controller.pinnedNotes.map((note) =>
+                                NoteCardWidget(note: note)),
+                            if (controller.otherNotes.isNotEmpty) ...[
+                              SectionHeaderWidget(
+                                title: 'Others',
+                                count: controller.otherNotes.length,
+                              ),
+                              ...controller.otherNotes.map((note) =>
+                                  NoteCardWidget(note: note)),
+                            ],
+                          ],
+                        );
                       }
                       return ListView.builder(
                         padding: EdgeInsets.zero,

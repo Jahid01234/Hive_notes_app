@@ -26,6 +26,9 @@ class AddNoteController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    if (Get.arguments != null && Get.arguments is String) {
+      selectedCategory.value = Get.arguments as String;
+    }
     descriptionController.addListener(_updateCounters);
   }
 

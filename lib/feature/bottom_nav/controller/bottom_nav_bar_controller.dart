@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_notes_app/core/const/icons_path.dart';
+import 'package:hive_notes_app/feature/folder/view/folder_screen.dart';
 import 'package:hive_notes_app/feature/home/view/home_screen.dart';
 
 class BottomNavBarController extends GetxController{
@@ -26,7 +27,7 @@ class BottomNavBarController extends GetxController{
 
   final List<Widget> pages = [
     HomeScreen(),
-    Center(child: Text("Folder")),
+    FolderScreen(),
     Center(child: Text("Setting")),
   ];
 

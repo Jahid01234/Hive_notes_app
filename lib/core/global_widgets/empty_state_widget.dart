@@ -32,6 +32,7 @@ class EmptyStateWidget extends StatelessWidget {
             SizedBox(height: getHeight(10)),
             Text(
               message,
+              textAlign: TextAlign.center,
               style: globalTextStyle(
                 fontSize: 14,
                 color: AppColors.greyColor,

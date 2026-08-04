@@ -61,10 +61,10 @@ class SearchScreen extends StatelessWidget {
                    height: getHeight(38),
                    child: ListView.builder(
                      scrollDirection: Axis.horizontal,
-                     itemCount: AppCategories.categories.length + 1,
+                     itemCount: AppCategories.defaultCategories.length + 1,
                      itemBuilder: (context, index) {
                        final category = index == 0 ? 'All' : AppCategories
-                           .categories[index - 1];
+                           .defaultCategories[index - 1];
                        final isSelected = selected == category;
 
                        return CategoryCard(

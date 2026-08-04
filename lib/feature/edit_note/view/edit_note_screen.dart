@@ -26,11 +26,9 @@ class EditNoteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-
     return Scaffold(
       appBar: AppBackButton(
         title: AppStrings.editNote,
-
         actions: [
           NoteActionButtons(
             isDark: isDark,
@@ -57,6 +55,7 @@ class EditNoteScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: getHeight(4)),
               // Last updated info
               Text(
                 'Last edited: ${DateUtilHelper.formatFull(note.updatedAt)}',
@@ -67,6 +66,16 @@ class EditNoteScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: getHeight(14)),
+
+              // Category
+              SectionLabel(text: 'Category'),
+              SizedBox(height: getHeight(10)),
+              Obx(() => CategoryChipWidget(
+                selectedCategory: controller.selectedCategory.value,
+                onCategorySelected: controller.selectCategory,
+              ),
+              ),
+              SizedBox(height: getHeight(18)),
 
               // Title
               SectionLabel(text: 'Title'),
@@ -79,26 +88,6 @@ class EditNoteScreen extends StatelessWidget {
                     : controller.titleError.value,
                 onChanged: controller.validateTitle,
               )),
-              SizedBox(height: getHeight(16)),
-
-              // Category
-              SectionLabel(text: 'Category'),
-              SizedBox(height: getHeight(10)),
-              Obx(() => CategoryChipWidget(
-                  selectedCategory: controller.selectedCategory.value,
-                  onCategorySelected: controller.selectCategory,
-                ),
-              ),
-              SizedBox(height: getHeight(18)),
-
-              // Color
-              SectionLabel(text: 'Note Color'),
-              SizedBox(height: getHeight(10)),
-              Obx(() => ColorPickerWidget(
-                  selectedColor: controller.selectedColor.value,
-                  onColorSelected: controller.selectColor,
-                ),
-              ),
               SizedBox(height: getHeight(18)),
 
               // Description
@@ -114,7 +103,6 @@ class EditNoteScreen extends StatelessWidget {
                 onChanged: controller.validateDescription,
               )),
               SizedBox(height: getHeight(8)),
-
               Align(
                 alignment: Alignment.centerRight,
                 child: Obx(
@@ -129,7 +117,17 @@ class EditNoteScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: getHeight(16)),
+              SizedBox(height: getHeight(8)),
+
+              // Color
+              SectionLabel(text: 'Note Color'),
+              SizedBox(height: getHeight(10)),
+              Obx(() => ColorPickerWidget(
+                selectedColor: controller.selectedColor.value,
+                onColorSelected: controller.selectColor,
+              ),
+              ),
+              SizedBox(height: getHeight(50)),
 
               // Update button
               Obx(() => AppPrimaryButton(

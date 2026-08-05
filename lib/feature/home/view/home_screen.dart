@@ -7,7 +7,7 @@ import 'package:hive_notes_app/core/theme/theme_controller.dart';
 import 'package:hive_notes_app/feature/home/controller/home_controller.dart';
 import 'package:hive_notes_app/feature/home/view/widget/custom_floating_button.dart';
 import 'package:hive_notes_app/feature/home/view/widget/home_header_section.dart';
-import 'package:hive_notes_app/feature/home/view/widget/note_card_widget.dart';
+import 'package:hive_notes_app/core/global_widgets/note_card_widget.dart';
 import 'package:hive_notes_app/feature/home/view/widget/note_list_header.dart';
 import 'package:hive_notes_app/feature/home/view/widget/section_header_widget.dart';
 

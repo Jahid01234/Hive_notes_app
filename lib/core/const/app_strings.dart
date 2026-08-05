@@ -8,6 +8,7 @@ class AppStrings {
   static const String noNotesYet = 'No notes yet';
   static const String addNote = 'Add Note';
   static const String editNote = 'Edit Note';
+  static const String viewNote = 'View Note';
   static const String title = 'Title';
   static const String description = 'Description';
   static const String save = 'Save';

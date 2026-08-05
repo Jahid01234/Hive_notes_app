@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:hive_notes_app/core/data/model/note_model.dart';
+import 'package:hive_notes_app/feature/folder/controller/folder_controller.dart';
 import 'package:hive_notes_app/feature/home/view/widget/category_tag.dart';
 import 'package:hive_notes_app/feature/search/controller/search_controller.dart';
 import 'package:intl/intl.dart';
@@ -15,6 +16,7 @@ import 'package:hive_notes_app/feature/home/controller/home_controller.dart';
 class NoteCardWidget extends StatelessWidget {
   final HomeController? homeController;
   final SearchNoteController? searchController;
+  final FolderController? folderController;
 
   final NoteModel note;
 
@@ -22,6 +24,7 @@ class NoteCardWidget extends StatelessWidget {
     super.key,
     this.homeController,
     this.searchController,
+    this.folderController,
     required this.note,
   });
 
@@ -33,6 +36,10 @@ class NoteCardWidget extends StatelessWidget {
     if (searchController != null) {
       searchController!.deleteNote(note.id);
     }
+
+    if (folderController != null) {
+      folderController!.deleteNote(note.id);
+    }
   }
 
   void toggleFavourite() {
@@ -42,6 +49,10 @@ class NoteCardWidget extends StatelessWidget {
 
     if (searchController != null) {
       searchController!.toggleFavourite(note.id);
+    }
+
+    if (folderController != null) {
+      folderController!.toggleFavourite(note.id);
     }
   }
 
@@ -74,6 +85,9 @@ class NoteCardWidget extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(getRadius(16)),
           onTap: () {
+            Get.toNamed(AppRoutes.viewNote, arguments: note);
+          },
+          onDoubleTap: (){
             Get.toNamed(AppRoutes.editNote, arguments: note);
           },
           child: Container(

@@ -7,7 +7,7 @@ import 'package:hive_notes_app/core/global_widgets/empty_state_widget.dart';
 import 'package:hive_notes_app/feature/add_note/view/add_note_screen.dart';
 import 'package:hive_notes_app/feature/folder/controller/folder_controller.dart';
 import 'package:hive_notes_app/feature/home/view/widget/custom_floating_button.dart';
-import 'package:hive_notes_app/feature/home/view/widget/note_card_widget.dart';
+import 'package:hive_notes_app/core/global_widgets/note_card_widget.dart';
 
 class FolderNotesScreen extends StatelessWidget {
   final FolderModel folder;
@@ -43,7 +43,11 @@ class FolderNotesScreen extends StatelessWidget {
                 bottom: getHeight(80),
             ),
             itemCount: notes.length,
-            itemBuilder: (context, index) => NoteCardWidget(note: notes[index]),
+            itemBuilder: (context, index) =>
+                  NoteCardWidget(
+                      note: notes[index],
+                      folderController: controller,
+                ),
           ),
         );
       }),

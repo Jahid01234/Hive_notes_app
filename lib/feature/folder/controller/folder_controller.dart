@@ -125,6 +125,14 @@ class FolderController extends GetxController {
     return true;
   }
 
+  Future<void> toggleFavourite(String id) async {
+    await _noteRepository.toggleFavourite(id);
+  }
+
+  Future<void> deleteNote(String id) async {
+    await _noteRepository.deleteNote(id);
+  }
+
   // Deleted folder..........................................................
   Future<void> deleteFolder(FolderModel folder) async {
     await _folderRepository.deleteFolder(folder.id);

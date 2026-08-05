@@ -7,26 +7,26 @@ import 'package:hive_notes_app/core/style/global_text_style.dart';
 class NoteActionButtons extends StatelessWidget {
   final bool isDark;
 
-  final RxBool isPinned;
-  final RxBool isFavourite;
+  final RxBool? isPinned;
+  final RxBool? isFavourite;
 
-  final VoidCallback onPinTap;
-  final VoidCallback onFavouriteTap;
+  final VoidCallback? onPinTap;
+  final VoidCallback? onFavouriteTap;
 
-  final VoidCallback onShare;
-  final VoidCallback onCopy;
-  final VoidCallback onDelete;
+  final VoidCallback? onShare;
+  final VoidCallback? onCopy;
+  final VoidCallback? onDelete;
 
   const NoteActionButtons({
     super.key,
     required this.isDark,
-    required this.isPinned,
-    required this.isFavourite,
-    required this.onPinTap,
-    required this.onFavouriteTap,
-    required this.onShare,
-    required this.onCopy,
-    required this.onDelete,
+    this.isPinned,
+    this.isFavourite,
+    this.onPinTap,
+    this.onFavouriteTap,
+    this.onShare,
+    this.onCopy,
+    this.onDelete,
   });
 
   @override
@@ -36,12 +36,13 @@ class NoteActionButtons extends StatelessWidget {
       children: [
         SizedBox(width:getWidth(6)),
         // Pin Button
+        if (isPinned != null)
         Obx(() => IconButton(
             icon: Icon(
-              isPinned.value
+              isPinned!.value
                   ? Icons.push_pin_rounded
                   : Icons.push_pin_outlined,
-              color: isPinned.value
+              color: isPinned!.value
                   ? AppColors.primaryColor
                   : (isDark
                   ? AppColors.whiteColor
@@ -53,12 +54,13 @@ class NoteActionButtons extends StatelessWidget {
 
 
         // Favourite Button
+        if (isFavourite != null)
         Obx(() => IconButton(
             icon: Icon(
-              isFavourite.value
+              isFavourite!.value
                   ? Icons.favorite_rounded
                   : Icons.favorite_border_rounded,
-              color: isFavourite.value
+              color: isFavourite!.value
                   ? AppColors.errorColor
                   : (isDark
                   ? AppColors.whiteColor
@@ -70,6 +72,7 @@ class NoteActionButtons extends StatelessWidget {
 
 
         // More Menu
+        if (onShare != null || onCopy != null || onDelete != null)
         PopupMenuButton<String>(
           icon: Icon(
             Icons.more_vert_rounded,
@@ -82,20 +85,21 @@ class NoteActionButtons extends StatelessWidget {
             switch(value){
 
               case "share":
-                onShare();
+                onShare?.call();
                 break;
 
               case "copy":
-                onCopy();
+                onCopy?.call();
                 break;
 
               case "delete":
-                onDelete();
+                onDelete?.call();
                 break;
             }
 
           },
           itemBuilder: (context)=>[
+            if (onShare != null)
              PopupMenuItem(
               value: "share",
               child: Row(
@@ -116,6 +120,7 @@ class NoteActionButtons extends StatelessWidget {
               ),
             ),
 
+            if (onCopy != null)
             PopupMenuItem(
               value:"copy",
               child: Row(
@@ -136,6 +141,7 @@ class NoteActionButtons extends StatelessWidget {
               ),
             ),
 
+            if (onDelete != null)
              PopupMenuItem(
               value:"delete",
               child: Row(
@@ -159,10 +165,9 @@ class NoteActionButtons extends StatelessWidget {
             ),
           ],
         ),
-
-
         SizedBox(width:getWidth(6)),
       ],
     );
   }
 }
+

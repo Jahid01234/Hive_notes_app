@@ -5,6 +5,7 @@ import 'package:hive_notes_app/feature/edit_note/view/edit_note_screen.dart';
 import 'package:hive_notes_app/feature/home/view/home_screen.dart';
 import 'package:hive_notes_app/feature/search/view/search_screen.dart';
 import 'package:hive_notes_app/feature/splash/view/splash_screen.dart';
+import 'package:hive_notes_app/feature/view_note/view/view_note_screen.dart';
 
 class AppRoutes {
   // Get routes name here.......
@@ -13,6 +14,7 @@ class AppRoutes {
   static const String home = '/home';
   static const String addNote = '/addNote';
   static const String editNote = '/edit-note';
+  static const String viewNote = '/viewNote';
   static const String search = '/search';
 
 
@@ -42,6 +44,11 @@ class AppRoutes {
     GetPage(
       name: editNote,
       page: () => EditNoteScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: viewNote,
+      page: () => ViewNoteScreen(),
       transition: Transition.rightToLeft,
     ),
     GetPage(

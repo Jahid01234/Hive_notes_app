@@ -7,7 +7,7 @@ import 'package:hive_notes_app/core/global_widgets/app_back_button.dart';
 import 'package:hive_notes_app/core/global_widgets/custom_text_field.dart';
 import 'package:hive_notes_app/core/global_widgets/empty_state_widget.dart';
 import 'package:hive_notes_app/core/style/global_text_style.dart';
-import 'package:hive_notes_app/feature/home/view/widget/note_card_widget.dart';
+import 'package:hive_notes_app/core/global_widgets/note_card_widget.dart';
 import 'package:hive_notes_app/feature/search/controller/search_controller.dart';
 import 'package:hive_notes_app/feature/search/view/widgets/category_card.dart';
 

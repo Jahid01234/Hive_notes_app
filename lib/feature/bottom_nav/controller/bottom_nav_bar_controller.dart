@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:hive_notes_app/core/const/icons_path.dart';
 import 'package:hive_notes_app/feature/folder/view/folder_screen.dart';
 import 'package:hive_notes_app/feature/home/view/home_screen.dart';
+import 'package:hive_notes_app/feature/setting/view/setting_screen.dart';
 
 class BottomNavBarController extends GetxController{
   var selectedIndex = 0.obs;
@@ -28,7 +29,7 @@ class BottomNavBarController extends GetxController{
   final List<Widget> pages = [
     HomeScreen(),
     FolderScreen(),
-    Center(child: Text("Setting")),
+    SettingsScreen(),
   ];
 
 }

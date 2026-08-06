@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'folder_model.g.dart';
 
-@HiveType(typeId: 1) // NoteModel এর typeId 0, তাই এটা 1
+@HiveType(typeId: 1)
 class FolderModel extends HiveObject {
   @HiveField(0)
   String id;
@@ -22,4 +22,18 @@ class FolderModel extends HiveObject {
     required this.colorValue,
     required this.createdAt,
   });
+
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'name': name,
+    'colorValue': colorValue,
+    'createdAt': createdAt.toIso8601String(),
+  };
+
+  factory FolderModel.fromJson(Map<String, dynamic> json) => FolderModel(
+    id: json['id'],
+    name: json['name'],
+    colorValue: json['colorValue'],
+    createdAt: DateTime.parse(json['createdAt']),
+  );
 }

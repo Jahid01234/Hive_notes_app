@@ -27,5 +27,9 @@ class FolderRepository {
     }
   }
 
+  Future<void> clearAll() async {
+    await _folderBox.clear();
+  }
+
   Stream<BoxEvent> watchFolders() => _folderBox.watch();
 }

@@ -64,4 +64,28 @@ class NoteModel extends HiveObject {
       updatedAt: updatedAt ?? this.updatedAt,
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'title': title,
+    'description': description,
+    'colorValue': colorValue,
+    'category': category,
+    'isPinned': isPinned,
+    'isFavourite': isFavourite,
+    'createdAt': createdAt.toIso8601String(),
+    'updatedAt': updatedAt.toIso8601String(),
+  };
+
+  factory NoteModel.fromJson(Map<String, dynamic> json) => NoteModel(
+    id: json['id'],
+    title: json['title'],
+    description: json['description'],
+    colorValue: json['colorValue'],
+    category: json['category'],
+    isPinned: json['isPinned'] ?? false,
+    isFavourite: json['isFavourite'] ?? false,
+    createdAt: DateTime.parse(json['createdAt']),
+    updatedAt: DateTime.parse(json['updatedAt']),
+  );
 }

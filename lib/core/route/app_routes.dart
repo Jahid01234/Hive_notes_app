@@ -5,6 +5,7 @@ import 'package:hive_notes_app/feature/edit_note/view/edit_note_screen.dart';
 import 'package:hive_notes_app/feature/home/view/home_screen.dart';
 import 'package:hive_notes_app/feature/search/view/search_screen.dart';
 import 'package:hive_notes_app/feature/splash/view/splash_screen.dart';
+import 'package:hive_notes_app/feature/terms_conditions/view/terms_and_conditions.dart';
 import 'package:hive_notes_app/feature/view_note/view/view_note_screen.dart';
 
 class AppRoutes {
@@ -16,6 +17,8 @@ class AppRoutes {
   static const String editNote = '/edit-note';
   static const String viewNote = '/viewNote';
   static const String search = '/search';
+  static const String termsAndConditions = '/termsAndConditions';
+  static const String privacyPolicy = '/privacyPolicy';
 
 
 
@@ -56,6 +59,16 @@ class AppRoutes {
       page: () => SearchScreen(),
       transition: Transition.downToUp,
     ),
+    GetPage(
+      name: termsAndConditions,
+      page: () => TermsAndConditionsScreen(),
+      transition: Transition.downToUp,
+    ),
+    // GetPage(
+    //   name: privacyPolicy,
+    //   page: () => TermsAndConditionsScreen(),
+    //   transition: Transition.downToUp,
+    // ),
 
   ];
 }

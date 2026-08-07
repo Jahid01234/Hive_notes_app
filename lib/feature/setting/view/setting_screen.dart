@@ -5,6 +5,7 @@ import 'package:hive_notes_app/core/const/app_size.dart';
 import 'package:hive_notes_app/core/global_widgets/app_back_button.dart';
 import 'package:hive_notes_app/core/global_widgets/custom_dialog.dart';
 import 'package:hive_notes_app/core/global_widgets/section_label.dart';
+import 'package:hive_notes_app/core/route/app_routes.dart';
 import 'package:hive_notes_app/core/theme/theme_controller.dart';
 import 'package:hive_notes_app/feature/setting/controller/setting_controller.dart';
 import 'package:hive_notes_app/feature/setting/view/widgets/settings_tile.dart';
@@ -86,7 +87,7 @@ class SettingsScreen extends StatelessWidget {
                 icon: Icons.info_outline_rounded,
                 title: 'Terms & Conditions',
                 onTap: () {
-
+                  Get.toNamed(AppRoutes.termsAndConditions);
                 },
               ),
 

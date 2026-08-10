@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hive_notes_app/core/const/app_colors.dart';
 import 'package:hive_notes_app/core/const/app_size.dart';
 import 'package:hive_notes_app/core/global_widgets/app_back_button.dart';
+import 'package:hive_notes_app/core/global_widgets/build_bullet_point.dart';
+import 'package:hive_notes_app/core/global_widgets/build_contact_info.dart';
+import 'package:hive_notes_app/core/global_widgets/last_updated_card.dart';
 import 'package:hive_notes_app/core/global_widgets/section_label.dart';
 import 'package:hive_notes_app/core/style/global_text_style.dart';
-import 'package:hive_notes_app/feature/terms_conditions/view/widgets/build_bullet_point.dart';
-import 'package:hive_notes_app/feature/terms_conditions/view/widgets/build_contact_info.dart';
-import 'package:hive_notes_app/feature/terms_conditions/view/widgets/last_updated_card.dart';
+
 
 class TermsAndConditionsScreen extends StatelessWidget {
   const TermsAndConditionsScreen({super.key});
@@ -26,7 +27,7 @@ class TermsAndConditionsScreen extends StatelessWidget {
                 SizedBox(height: getHeight(20)),
 
                 // Last Updated
-                LastUpdatedCard(),
+                LastUpdatedCard(text: "Last Updated: August 07, 2026"),
 
                 SizedBox(height: getHeight(20)),
 

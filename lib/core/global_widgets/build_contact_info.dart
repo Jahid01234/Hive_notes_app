@@ -20,9 +20,9 @@ class BuildContactInfo extends StatelessWidget {
     return Row(
       children: [
         Icon(
-            icon,
-            size: getWidth(18),
-            color: AppColors.primaryColor,
+          icon,
+          size: getWidth(18),
+          color: AppColors.primaryColor,
         ),
         SizedBox(width: getWidth(8)),
         Expanded(

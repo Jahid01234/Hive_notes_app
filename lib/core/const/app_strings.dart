@@ -1,8 +1,8 @@
 class AppStrings {
   AppStrings._();
 
-  static const String appName = "LAO NOTE";
-  static const String appNameShort = "Lao Note";
+  static const String appName = "MY NOTE";
+  //static const String appNameShort = "Lao Note";
   static const String appNameSubtitle = "Easily Manage Your Notes On Your Phone\n &You Can Have Infinite Notes";
   static const String loading = "Loading...";
   static const String noNotesYet = 'No notes yet';

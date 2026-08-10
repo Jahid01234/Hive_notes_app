@@ -3,9 +3,10 @@ import 'package:hive_notes_app/feature/add_note/view/add_note_screen.dart';
 import 'package:hive_notes_app/feature/bottom_nav/view/bottom_nav_bar_screen.dart';
 import 'package:hive_notes_app/feature/edit_note/view/edit_note_screen.dart';
 import 'package:hive_notes_app/feature/home/view/home_screen.dart';
+import 'package:hive_notes_app/feature/privacy_policy/view/privacy_policy_screen.dart';
 import 'package:hive_notes_app/feature/search/view/search_screen.dart';
 import 'package:hive_notes_app/feature/splash/view/splash_screen.dart';
-import 'package:hive_notes_app/feature/terms_conditions/view/terms_and_conditions.dart';
+import 'package:hive_notes_app/feature/terms_conditions/view/terms_and_conditions_screen.dart';
 import 'package:hive_notes_app/feature/view_note/view/view_note_screen.dart';
 
 class AppRoutes {
@@ -64,11 +65,11 @@ class AppRoutes {
       page: () => TermsAndConditionsScreen(),
       transition: Transition.downToUp,
     ),
-    // GetPage(
-    //   name: privacyPolicy,
-    //   page: () => TermsAndConditionsScreen(),
-    //   transition: Transition.downToUp,
-    // ),
+    GetPage(
+      name: privacyPolicy,
+      page: () => PrivacyPolicyScreen(),
+      transition: Transition.downToUp,
+    ),
 
   ];
 }

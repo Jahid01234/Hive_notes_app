@@ -84,7 +84,7 @@ class SettingsScreen extends StatelessWidget {
               SectionLabel(text: 'About'),
               SizedBox(height: getHeight(6)),
               SettingsTile(
-                icon: Icons.info_outline_rounded,
+                icon: Icons.assignment_outlined,
                 title: 'Terms & Conditions',
                 onTap: () {
                   Get.toNamed(AppRoutes.termsAndConditions);
@@ -95,7 +95,7 @@ class SettingsScreen extends StatelessWidget {
                 icon: Icons.privacy_tip_outlined,
                 title: 'Privacy Policy',
                 onTap: () {
-
+                  Get.toNamed(AppRoutes.privacyPolicy);
                 },
               ),
               SettingsTile(

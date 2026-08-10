@@ -17,8 +17,8 @@ class BuildBulletPoint extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: getWidth(16),
-          bottom: getHeight(6),
+        left: getWidth(16),
+        bottom: getHeight(6),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

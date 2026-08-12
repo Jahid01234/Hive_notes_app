@@ -5,9 +5,9 @@ import 'package:hive_notes_app/core/const/app_size.dart';
 import 'package:hive_notes_app/core/data/model/folder_model.dart';
 import 'package:hive_notes_app/core/global_widgets/custom_dialog.dart';
 import 'package:hive_notes_app/core/global_widgets/empty_state_widget.dart';
+import 'package:hive_notes_app/core/route/app_routes.dart';
 import 'package:hive_notes_app/core/style/global_text_style.dart';
 import 'package:hive_notes_app/feature/folder/controller/folder_controller.dart';
-import 'package:hive_notes_app/feature/folder/view/folder_notes_screen.dart';
 import 'package:hive_notes_app/feature/folder/view/widget/add_folder_bottom_sheet.dart';
 import 'package:hive_notes_app/feature/folder/view/widget/folder_card.dart';
 import 'package:hive_notes_app/feature/folder/view/widget/folder_header_section.dart';
@@ -72,7 +72,7 @@ class FolderScreen extends StatelessWidget {
                       return FolderCard(
                         folder: folder,
                         noteCount: count,
-                        onTap: () => Get.to(() => FolderNotesScreen(folder: folder)),
+                        onTap: () => Get.toNamed(AppRoutes.folderNotes,arguments: folder),
                         onLongPress: () => _showDeleteConfirm(context, controller, folder),
                       );
                     },

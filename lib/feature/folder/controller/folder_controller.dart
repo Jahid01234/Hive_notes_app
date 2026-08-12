@@ -43,7 +43,6 @@ class FolderController extends GetxController {
   void _loadCategoryOptions() {
     final custom = _customCategoryRepository.getCustomCategories();
     final merged = [...AppCategories.defaultCategories, ...custom];
-    // duplicate বাদ (case-insensitive)
     final seen = <String>{};
     categoryOptions.value = merged.where((e) => seen.add(e.toLowerCase())).toList();
   }

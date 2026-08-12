@@ -50,8 +50,6 @@ class SettingsScreen extends StatelessWidget {
               )),
               Divider(height: getHeight(35)),
 
-
-
               // Data
               SectionLabel(text: 'Data & Backup'),
               SizedBox(height: getHeight(6)),
@@ -122,7 +120,6 @@ class SettingsScreen extends StatelessWidget {
         title: 'Clear All Data?',
         content: 'This will permanently delete all your notes and folders.'
                  ' This action cannot be undone.',
-        confirmText: 'Clear All',
         confirmColor: AppColors.errorColor,
         onConfirm: controller.clearAllData,
       ),

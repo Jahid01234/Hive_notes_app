@@ -24,7 +24,7 @@ class SearchNoteController extends GetxController {
       applySearchMethod();
     });
 
-    // Hive box এ change হলে (delete/edit ) list auto refresh হবে
+
     _repository.watchNotes().listen((event) {
       allNotes.value = _repository.getAllNotes();
       applySearchMethod();
@@ -74,7 +74,7 @@ class SearchNoteController extends GetxController {
       results = results.where((n) => n.category == selectedCategory.value).toList();
     }
 
-    // Text search - title বা description এ match করলে
+
     if (query.isNotEmpty) {
       results = results.where((note) {
         final titleMatch = note.title.toLowerCase().contains(query);

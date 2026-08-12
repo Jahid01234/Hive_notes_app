@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:hive_notes_app/feature/add_note/view/add_note_screen.dart';
 import 'package:hive_notes_app/feature/bottom_nav/view/bottom_nav_bar_screen.dart';
 import 'package:hive_notes_app/feature/edit_note/view/edit_note_screen.dart';
+import 'package:hive_notes_app/feature/folder/view/folder_notes_screen.dart';
 import 'package:hive_notes_app/feature/home/view/home_screen.dart';
 import 'package:hive_notes_app/feature/privacy_policy/view/privacy_policy_screen.dart';
 import 'package:hive_notes_app/feature/search/view/search_screen.dart';
@@ -20,6 +21,7 @@ class AppRoutes {
   static const String search = '/search';
   static const String termsAndConditions = '/termsAndConditions';
   static const String privacyPolicy = '/privacyPolicy';
+  static const String folderNotes = '/folderNotes';
 
 
 
@@ -68,6 +70,11 @@ class AppRoutes {
     GetPage(
       name: privacyPolicy,
       page: () => PrivacyPolicyScreen(),
+      transition: Transition.downToUp,
+    ),
+    GetPage(
+      name: folderNotes,
+      page: () => FolderNotesScreen(),
       transition: Transition.downToUp,
     ),
 

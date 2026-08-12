@@ -169,7 +169,7 @@ class EditNoteController extends GetxController {
     await _repository.deleteNote(note.id);
   }
 
-  // Undo delete - আবার আগের data দিয়ে note টা restore করে দেয়
+
   Future<void> restoreNote() async {
     await _repository.addNote(note);
   }

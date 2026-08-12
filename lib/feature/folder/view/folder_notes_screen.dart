@@ -10,14 +10,10 @@ import 'package:hive_notes_app/feature/home/view/widget/custom_floating_button.d
 import 'package:hive_notes_app/core/global_widgets/note_card_widget.dart';
 
 class FolderNotesScreen extends StatelessWidget {
-  final FolderModel folder;
-
-  FolderNotesScreen({
-    super.key,
-    required this.folder,
-  });
+  FolderNotesScreen({super.key});
 
   final FolderController controller = Get.find<FolderController>();
+  final FolderModel folder = Get.arguments as FolderModel;
 
   @override
   Widget build(BuildContext context) {

@@ -93,7 +93,7 @@ class HomeController extends GetxController {
     applyFilterAndSort();
   }
 
-  Future<void> togglePin(String id) async {
+  Future<void> togglePined(String id) async {
     await _repository.togglePin(id);
   }
 

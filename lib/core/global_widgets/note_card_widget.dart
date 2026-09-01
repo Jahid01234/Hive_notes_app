@@ -56,11 +56,26 @@ class NoteCardWidget extends StatelessWidget {
     }
   }
 
+
+  void togglePined() {
+    if (homeController != null) {
+      homeController!.togglePined(note.id);
+    }
+
+    if (searchController != null) {
+      searchController!.togglePined(note.id);
+    }
+
+    if (folderController != null) {
+      folderController!.togglePined(note.id);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final cardColor = isDark ? AppColors.cardDark : Color(note.colorValue);
-
+    
     return Padding(
       padding: EdgeInsets.only(bottom: getHeight(12)),
       child: Slidable(
@@ -127,10 +142,15 @@ class NoteCardWidget extends StatelessWidget {
                     ),
 
                     if (note.isPinned)
-                      Icon(
-                        Icons.push_pin_rounded,
-                        size: getWidth(16),
-                        color: AppColors.primaryColor,
+                      InkWell(
+                        onTap: () {
+                          togglePined();
+                        },
+                        child: Icon(
+                          Icons.push_pin_rounded,
+                          size: getWidth(18),
+                          color: AppColors.primaryColor,
+                        ),
                       ),
                     SizedBox(width: getWidth(6)),
                     InkWell(
@@ -141,7 +161,7 @@ class NoteCardWidget extends StatelessWidget {
                         note.isFavourite
                             ? Icons.favorite_rounded
                             : Icons.favorite_border_rounded,
-                        size: getWidth(18),
+                        size: getWidth(20),
                         color: note.isFavourite
                             ? AppColors.errorColor
                             : AppColors.greyColor,

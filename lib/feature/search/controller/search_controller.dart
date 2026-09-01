@@ -57,6 +57,10 @@ class SearchNoteController extends GetxController {
     await _repository.toggleFavourite(id);
   }
 
+  Future<void> togglePined(String id) async {
+    await _repository.togglePin(id);
+  }
+
   Future<void> deleteNote(String id) async {
     await _repository.deleteNote(id);
   }

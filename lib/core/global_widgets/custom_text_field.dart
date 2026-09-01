@@ -69,7 +69,7 @@ class CustomTextField extends StatelessWidget {
             readOnly: readOnly ?? false,
             cursorColor: Colors.grey,
             maxLines: maxLines ?? 1,
-            enableInteractiveSelection: false,
+            enableInteractiveSelection: true,
             style: globalTextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w400,

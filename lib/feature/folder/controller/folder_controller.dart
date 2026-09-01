@@ -128,6 +128,10 @@ class FolderController extends GetxController {
     await _noteRepository.toggleFavourite(id);
   }
 
+  Future<void> togglePined(String id) async {
+    await _noteRepository.togglePin(id);
+  }
+
   Future<void> deleteNote(String id) async {
     await _noteRepository.deleteNote(id);
   }

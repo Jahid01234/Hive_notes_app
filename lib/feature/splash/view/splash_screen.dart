@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
+      backgroundColor: AppColors.whiteColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -28,13 +28,13 @@ class SplashScreen extends StatelessWidget {
                   height: 130,
                   width: 120,
                   fit: BoxFit.cover,
-                  color: AppColors.whiteColor,
+                  color: AppColors.blackColor,
                 ),
                 Text(
                   AppStrings.appName,
                   style: globalTextStyle(
                     fontSize: 22,
-                    color: AppColors.whiteColor,
+                    color: AppColors.blackColor,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -44,7 +44,7 @@ class SplashScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: globalTextStyle(
                     fontSize: 15,
-                    color: AppColors.greyColor,
+                    color: AppColors.blackColor,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -55,7 +55,7 @@ class SplashScreen extends StatelessWidget {
               children: [
                 const SpinKitCircle(
                   size: 50,
-                  color: AppColors.whiteColor,
+                  color: AppColors.blackColor,
                 ),
                 const SizedBox(height: 5),
                 Text(
@@ -63,7 +63,7 @@ class SplashScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: globalTextStyle(
                     fontSize: 15,
-                    color: AppColors.greyColor,
+                    color: AppColors.blackColor,
                     fontWeight: FontWeight.w400,
                   ),
                 ),

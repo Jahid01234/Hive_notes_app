@@ -4,7 +4,7 @@ class AppStrings {
   static const String appName = "MY NOTE";
   //static const String appNameShort = "Lao Note";
   static const String appNameSubtitle = "Easily Manage Your Notes On Your Phone\n &You Can Have Infinite Notes";
-  static const String loading = "Loading...";
+  static const String loading = "Loading.....";
   static const String noNotesYet = 'No notes yet';
   static const String addNote = 'Add Note';
   static const String editNote = 'Edit Note';

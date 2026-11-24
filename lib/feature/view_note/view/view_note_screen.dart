@@ -84,7 +84,7 @@ class ViewNoteScreen extends StatelessWidget {
                 note.description,
                 style: globalTextStyle(
                   fontSize: 14,
-                  color: AppColors.greyColor,
+                  color: AppColors.blackColor,
                 ),
               ),
             ),
